@@ -1,3 +1,4 @@
+import pickle
 settings_string = """API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
 MYSQL = {MYSQL}
@@ -12,8 +13,8 @@ attempts = 0
 max_attempts = 4
 method_prompt = "Enter the method you wish to save the data: " \
                 + "\n[1] File on the disk"\
-                + "\n[2] sqllite"\
-                + "\n[3] mysql\n"
+                + "\n[2] (unsupported) sqllite"\
+                + "\n[3] (unsupported) mysql\n"
 
 API_KEY = raw_input("Enter API Key: ")
 while attempts < max_attempts:
@@ -21,9 +22,11 @@ while attempts < max_attempts:
         method_prompt = "Incorrect option. Select one of the given options: "
     DATA_STORE = raw_input(method_prompt)
     if DATA_STORE is '1':
+        regs = []
+        with open('./regs.store', 'w') as reg_file:
+            reg_file.write(pickle.dumps(regs))
         DATA_STORE = 'file'
         attempts += max_attempts
-        # create File
     elif DATA_STORE is '2':
         DATA_STORE = 'sqlite'
         attempts += max_attempts
