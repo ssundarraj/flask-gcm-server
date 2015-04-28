@@ -3,7 +3,7 @@ import pickle
 settings_string = """API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
 MYSQL = {MYSQL}
-FILE_STORE = {FILE_STORE}
+FILE_STORE = '{FILE_STORE}'
 """
 API_KEY = None
 DATA_STORE = None
@@ -43,5 +43,5 @@ while attempts < max_attempts:
 
 settings_string = settings_string.format(**locals())
 
-with open('./settings.py', 'w') as settings_file:
+with open('./app/settings.py', 'w') as settings_file:
     settings_file.write(settings_string)
