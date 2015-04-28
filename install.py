@@ -28,8 +28,7 @@ while attempts < max_attempts:
     else:
         attempts += 1
 
-settings_string = settings_string.format(API_KEY=API_KEY,
-                                         DATA_STORE=DATA_STORE)
+settings_string = settings_string.format(**locals())
 
 with open('./settings.py', 'w') as settings_file:
     settings_file.write(settings_string)
