@@ -1,6 +1,13 @@
 settings_string = """API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
+MYSQL = {MYSQL}
 """
+API_KEY = None
+DATA_STORE = None
+MYSQL = {'user': None,
+         'pass': None,
+         'host': None,
+         'db': None}
 attempts = 0
 max_attempts = 4
 method_prompt = "Enter the method you wish to save the data: " \
