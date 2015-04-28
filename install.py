@@ -1,7 +1,9 @@
 import pickle
+
 settings_string = """API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
 MYSQL = {MYSQL}
+FILE_STORE = {FILE_STORE}
 """
 API_KEY = None
 DATA_STORE = None
@@ -9,6 +11,7 @@ MYSQL = {'user': None,
          'pass': None,
          'host': None,
          'db': None}
+FILE_STORE = 'regs.store'
 attempts = 0
 max_attempts = 4
 method_prompt = "Enter the method you wish to save the data: " \
@@ -23,7 +26,7 @@ while attempts < max_attempts:
     DATA_STORE = raw_input(method_prompt)
     if DATA_STORE is '1':
         regs = []
-        with open('./regs.store', 'w') as reg_file:
+        with open(FILE_STORE, 'w') as reg_file:
             reg_file.write(pickle.dumps(regs))
         DATA_STORE = 'file'
         attempts += max_attempts
