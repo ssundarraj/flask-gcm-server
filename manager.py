@@ -4,4 +4,3 @@ from app import db
 
 print "Starting server"
 app.run()
-
