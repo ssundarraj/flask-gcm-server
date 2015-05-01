@@ -1,6 +1,14 @@
 from .. import app
 from ..models import dbutils
-from flask import request
+from flask import request, render_template
+
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'GET':
+        return render_template('index.html')
+    else:
+        return '0'
 
 
 @app.route('/addid', methods=['GET', 'POST'])
