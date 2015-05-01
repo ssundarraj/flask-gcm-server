@@ -35,7 +35,6 @@ while attempts < max_attempts:
     elif DATA_STORE is '2':
         DATA_STORE = 'sqlite'
         attempts += max_attempts
-        # create db file
     elif DATA_STORE is '3':
         DATA_STORE = 'mysql'
         attempts += max_attempts
@@ -55,3 +54,9 @@ settings_string = settings_string.format(**locals())
 
 with open('./app/settings.py', 'w') as settings_file:
     settings_file.write(settings_string)
+
+if DATA_STORE is 'sqlite':
+    from app import db
+    db.create_all()
+
+print "To change any of the settings edit the file './app/settings.py'"

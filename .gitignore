@@ -58,3 +58,6 @@ target/
 
 # flask-gcm ignores
 *.store
+
+# database files
+*.db
