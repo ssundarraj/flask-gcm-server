@@ -12,7 +12,7 @@ if settings.DATA_STORE is 'sqlite':
 db = SQLAlchemy(app)
 
 import controllers.routes
-import models.regs
+import models.device
 
 app.debug = True
 if __name__ == '__main__':
