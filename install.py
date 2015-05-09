@@ -1,5 +1,7 @@
+#!/usr/bin/env python
 import pickle
-settings_string = """APP_NAME = '{APP_NAME}'
+settings_string = """INSTALLED = True
+APP_NAME = '{APP_NAME}'
 API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
 MYSQL = {MYSQL}
