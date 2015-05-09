@@ -1,4 +1,4 @@
-INSTALLE = False
+INSTALLED = False
 APP_NAME = 'Name of App'
 API_KEY = 'kjhkjh'
 DATA_STORE = 'sqlite'
