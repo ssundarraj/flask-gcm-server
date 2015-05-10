@@ -7,6 +7,10 @@ from ..settings import APP_NAME
 def index():
     if request.method == 'GET':
         return render_template('index.html', APP_NAME=APP_NAME)
+    elif request.method == 'POST':
+        print "Send GCM here"
+        dbutils.add_new_message(request.form['notif_msg'])
+        return '1'
     else:
         return '0'
 

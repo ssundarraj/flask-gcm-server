@@ -1,5 +1,5 @@
-INSTALLED = False
-APP_NAME = 'Name of App'
+INSTALLED = True
+APP_NAME = 'Fest'
 API_KEY = 'kjhkjh'
 DATA_STORE = 'sqlite'
 MYSQL = {'host': None, 'db': None, 'user': None, 'pass': None}

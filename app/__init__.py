@@ -13,6 +13,7 @@ db = SQLAlchemy(app)
 
 import controllers.routes
 import models.device
+import models.messages
 
 app.debug = True
 if __name__ == '__main__':
