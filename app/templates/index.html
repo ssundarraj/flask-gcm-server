@@ -4,14 +4,25 @@
 	<script type="text/javascript" src="../static/js/script.js"></script>
 </head>
 <body>
-	<div id='main' class="form-inline" style='text-align:center;'>
-		<h1>Welcome to {{ APP_NAME }} notifications</h1>
-		<form id='notif_form'>
-			<label for='notif_msg'>Enter the message here</label> <br/>
-			<textarea rows="3" columns="30" form='notif_form' class="form-control" name='notif_msg' id='notif_msg' type='textarea'></textarea> <br/><br/>
-			<input type="button" class="btn btn-primary" value="Send it!" onclick="sendNotifData();" />
-		</form>
+	<div id='main' style='margin-left:auto;margin-right:auto;'>
+		<div id='msg-form' class="form-inline" style='text-align:center;'>
+			<h1>Welcome to {{ APP_NAME }} notifications</h1>
+			<form id='notif_form'>
+				<label for='notif_msg'>Enter the message here</label> <br/>
+				<textarea rows="3" columns="30" form='notif_form' class="form-control" name='notif_msg' id='notif_msg' type='textarea'></textarea> <br/><br/>
+				<input type="button" class="btn btn-primary" value="Send it!" onclick="sendNotifData();" />
+			</form>
+			<h2>Previous notifications</h2>
+			<ul>
+				{% for message in messages %}
+				<li>{{ message.message_text }}</li>
+				{% else %}
+				<li><em>Unbelievable.  No entries here so far</em>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
+
 </body>
 
 </html>

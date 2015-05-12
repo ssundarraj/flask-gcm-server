@@ -15,3 +15,7 @@ def add_new_message(message_text):
 	db.session.add(new_message)
 	db.session.commit()
 	return new_message.id
+
+def get_all_messages():
+	list_of_messages = messages.Message.query.all()
+	return list_of_messages
