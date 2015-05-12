@@ -4,12 +4,12 @@
 	<script type="text/javascript" src="../static/js/script.js"></script>
 </head>
 <body>
-	<div id='main' style='text-align:center;'>
+	<div id='main' class="form-inline" style='text-align:center;'>
 		<h1>Welcome to {{ APP_NAME }} notifications</h1>
 		<form id='notif_form'>
 			<label for='notif_msg'>Enter the message here</label> <br/>
-			<textarea form='notif_form' name='notif_msg' id='notif_msg' type='textarea'></textarea> <br/>
-			<input type="button" value="Send it!" onclick="sendNotifData();" />
+			<textarea rows="3" columns="30" form='notif_form' class="form-control" name='notif_msg' id='notif_msg' type='textarea'></textarea> <br/><br/>
+			<input type="button" class="btn btn-primary" value="Send it!" onclick="sendNotifData();" />
 		</form>
 	</div>
 </body>
