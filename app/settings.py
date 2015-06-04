@@ -1,6 +1,5 @@
 INSTALLED = True
-APP_NAME = 'Fest'
-API_KEY = 'kjhkjh'
-DATA_STORE = 'sqlite'
-MYSQL = {'host': None, 'db': None, 'user': None, 'pass': None}
-FILE_STORE = 'regs.store'
+APP_NAME = 'Name of the App'
+API_KEY = 'API_KEY'
+DATA_STORE = 'TinyDB'
+TINYDB_PATH = '/Users/sriram.sundarraj/Documents/code/flask-gcm-server/db.json'

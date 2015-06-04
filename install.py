@@ -1,64 +1,23 @@
 #!/usr/bin/env python
-import pickle
+import os
+
 settings_string = """INSTALLED = True
 APP_NAME = '{APP_NAME}'
 API_KEY = '{API_KEY}'
 DATA_STORE = '{DATA_STORE}'
-MYSQL = {MYSQL}
-FILE_STORE = '{FILE_STORE}'
+TINYDB_PATH = '{TINYDB_PATH}'
 """
 APP_NAME = None
 API_KEY = None
-DATA_STORE = None
-MYSQL = {'user': None,
-         'pass': None,
-         'host': None,
-         'db': None}
-FILE_STORE = 'regs.store'
-attempts = 0
-max_attempts = 4
-method_prompt = "Enter the method you wish to save the data: " \
-                + "\n[1] (not supported) File on the disk"\
-                + "\n[2] (not supported) sqllite"\
-                + "\n[3] (not supported) mysql\n"
+DATA_STORE = 'TinyDB'
+TINYDB_PATH = os.path.join(os.getcwd(), 'db.json')
 
 APP_NAME = raw_input("Enter the name of the app: ")
-API_KEY = raw_input("Enter API Key: ")
-while attempts < max_attempts:
-    if attempts:
-        method_prompt = "Incorrect option. Select one of the given options: "
-    DATA_STORE = raw_input(method_prompt)
-    if DATA_STORE is '1':
-        regs = []
-        with open(FILE_STORE, 'w') as reg_file:
-            reg_file.write(pickle.dumps(regs))
-        DATA_STORE = 'file'
-        attempts += max_attempts
-    elif DATA_STORE is '2':
-        DATA_STORE = 'sqlite'
-        attempts += max_attempts
-    elif DATA_STORE is '3':
-        DATA_STORE = 'mysql'
-        attempts += max_attempts
-        mysql_host = raw_input("mysql host: ")
-        mysql_user = raw_input("mysql user: ")
-        mysql_pass = raw_input("mysql password: ")
-        mysql_db = raw_input("mysql db: ")
-        MYSQL = {'user': mysql_user,
-                 'pass': mysql_pass,
-                 'host': mysql_host,
-                 'db': mysql_db}
-        # connect and create db
-    else:
-        attempts += 1
+API_KEY = raw_input("Enter GCM API Key: ")
 
 settings_string = settings_string.format(**locals())
 
 with open('./app/settings.py', 'w') as settings_file:
     settings_file.write(settings_string)
-
-if DATA_STORE is 'sqlite':
-    from app import db
-    db.create_all()
 
 print "To change any of the settings edit the file './app/settings.py'"
