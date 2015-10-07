@@ -5,9 +5,10 @@ import messages
 
 def add_new_device(reg_id, status):
     new_user = device.Device(reg_id, status)
-    db.session.add(new_user)
-    db.session.commit()
-    return new_user.id
+    db.insert({'user': new_user})
+    print db.all()
+    return 1
+    return 0
 
 
 def add_new_message(message_text):
@@ -20,3 +21,4 @@ def add_new_message(message_text):
 def get_all_messages():
     list_of_messages = messages.Message.query.all()
     return list_of_messages
+
