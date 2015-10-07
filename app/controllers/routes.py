@@ -3,6 +3,7 @@ from ..models import dbutils
 from flask import request, render_template
 from ..settings import APP_NAME
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
